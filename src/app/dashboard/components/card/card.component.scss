@@ -1,0 +1,12 @@
+:host {
+  .card {
+    img {
+      cursor: pointer;
+      min-width: 200px;
+      min-height: 200px;
+      background-image: url('../../../../assets/otaku.png');
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  }
+}

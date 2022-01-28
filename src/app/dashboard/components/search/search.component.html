@@ -1,0 +1,26 @@
+<div class="row">
+    <div class="col-xl-3 col-lg-6 col-12 form-group">
+        <label class="small mb-1" for="search">
+            Search your desired gifs
+        </label>
+        <ng-select [bindLabel]="'data'" [bindValue]="'id'" [items]="response$ | async" (change)="search($event)"
+            [typeahead]="searchTypeHead$" [loading]="ngslectSpinner"></ng-select>
+    </div>
+    <div class="col-12">
+        <div class="col-12">
+            <div class="row">
+                <div *ngFor="let giph of searchResult.data" class="col-xl-3 col-lg-4 col-md-6 col-12 mb-1">
+                    <app-card [data]="giph"></app-card>
+                </div>
+            </div>
+            <ngb-alert [type]="'danger'" *ngIf="error">
+                Something went wrong!
+            </ngb-alert>
+        </div>
+        <div class="col-12 d-flex justify-content-center text-info" *ngIf="loading && !error">
+            <div class="spinner-border" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+    </div>
+</div>

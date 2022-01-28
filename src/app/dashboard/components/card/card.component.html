@@ -1,0 +1,27 @@
+<div class="card">
+    <img [src]="data?.images?.fixed_height?.url" (click)="collapse.toggle()" [attr.aria-expanded]="!toggler"
+        aria-controls="collapseExample" class="card-img-top" [alt]="data?.title">
+    <div class="card-body" #collapse="ngbCollapse" [(ngbCollapse)]="toggler">
+        <h6 class="card-title">
+            {{data?.title}}
+        </h6>
+        <p class="card-text">
+            Username:
+            <strong class="text-info">
+                {{data?.username}}
+            </strong>
+        </p>
+        <p class="card-text">
+            Imported at:
+            <strong class="text-info" [title]="data?.import_datetime">
+                {{data?.import_datetime | date: 'short'}}
+            </strong>
+        </p>
+        <p class="card-text">
+            Rating:
+            <strong class="text-info">
+                {{data?.rating | giphyRatings}}
+            </strong>
+        </p>
+    </div>
+</div>
